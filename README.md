@@ -1,4 +1,4 @@
-bash
-====
+bash resource config files
+===
 
-unix rc files for user
+Some config files, _a la Scott_.
