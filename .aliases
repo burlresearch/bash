@@ -22,4 +22,4 @@ alias rmsync='rsync --remove-source-files -Pavz'
 alias pyrus='php ~/bin/pyrus.phar'
 alias weberr='tail -f /var/log/apache2/error.log'
 alias ccache='find cache \( -name "*nav*" -o -name "*menu*" \) -exec rm -fv {} \;'
-
+alias stall='service --status-all'
