@@ -85,7 +85,9 @@ alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo
 [ -f /etc/bash_completion ] && ! shopt -oq posix && . /etc/bash_completion
 
 set -o vi
-# umask 007 - this is a little harse w.r.t. playing nice with others - perhaps on server
+export EDITOR=vim
+
+# umask 007 - this is a little harsh w.r.t. playing nice with others - perhaps on server
 umask 002
 
 [ -d /opt/phpstorm/bin ] && PATH="$PATH:/opt/phpstorm/bin"
@@ -126,4 +128,3 @@ fi
 
 export PATH=".:$PATH"
 export CLASSPATH
-
