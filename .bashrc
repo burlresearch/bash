@@ -1,12 +1,9 @@
 # ~/.bashrc: executed by bash(1) for non-login shells.
-# see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
-# for examples
 
 # If not running interactively, don't do anything
 [ -z "$PS1" ] && return
 
-# don't put duplicate lines in the history. See bash(1) for more options
-# ... or force ignoredups and ignorespace
+# don't put duplicate lines in the history.
 HISTCONTROL=ignoredups:ignorespace
 
 # append to the history file, don't overwrite it
@@ -77,12 +74,14 @@ if [ -x /usr/bin/dircolors ]; then
     alias egrep='egrep --color=auto'
 fi
 
-# Add an "alert" alias for long running commands.  Use like so:
-#   sleep 10; alert
+# Add an "alert" alias for long running commands.  Use like so: > sleep 10; alert
 alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
+
+## customizations below here
 
 [ -f ~/.aliases ] && . ~/.aliases
 [ -f /etc/bash_completion ] && ! shopt -oq posix && . /etc/bash_completion
+[ -f $HOME/.tidyrc ] && export HTML_TIDY="$HOME/.tidyrc"
 
 set -o vi
 export EDITOR=vim
@@ -94,8 +93,6 @@ umask 002
 [ -d /usr/local/phpstorm/bin ] && PATH="$PATH:/usr/local/phpstorm/bin"
 [ -d /usr/local/netbeans/bin ] && PATH="$PATH:/usr/local/netbeans/bin"
 [ -d /usr/local/idea/bin ] && PATH="$PATH:/usr/local/idea/bin"
-[ -d /usr/local/maven/bin ] && PATH="$PATH:/usr/local/maven/bin" && export M2_HOME=/usr/local/maven && export M2=$M2_HOME/bin
-[ -d /usr/share/maven/bin ] && PATH="$PATH:/usr/share/maven/bin" && export M2_HOME=/usr/share/maven && export M2=$M2_HOME/bin
 [ -d ~/.mozilla ] && export MOZILLA_HOME=~/.mozilla
 
 # ZEND
@@ -104,7 +101,36 @@ umask 002
 # JAVA
 [ -d /opt/java/bin ] && PATH="$PATH:/opt/java/bin" && export JDK_HOME=/opt/java && export JAVA_HOME=/opt/java
 [ -a /opt/mysql-connector-java.jar ] && CLASSPATH="/opt/mysql-connector-java.jar"
-[ -d $HOME/src/java ] && CLASSPATH="$CLASSPATH:$HOME/src/java"
+[ -d $HOME/src/java ] && CLASSPATH="$CLASSPATH:$HOME/src/java/jars/*"
+
+# RESEARCH
+[ -d /home/scott/src/java/research/tamingtext ] && export TT_HOME=/home/scott/src/java/research/tamingtext
+
+# MAVEN
+if [ -d /usr/local/maven/bin ]; then
+	PATH="$PATH:/usr/local/maven/bin"
+	export M2_HOME=/usr/local/maven
+	export M2=$M2_HOME/bin
+elif [ -d /usr/share/maven/bin ]; then
+	PATH="$PATH:/usr/share/maven/bin" 
+	export M2_HOME=/usr/share/maven 
+	export M2=$M2_HOME/bin
+fi
+
+# APACHE
+[ -d /home/scott/src/java/apache/mahout ] && export MAHOUT_HOME=/home/scott/src/java/apache/mahout && PATH="$PATH:$MAHOUT_HOME/bin"
+
+[ -d /home/scott/src/java/apache/hadoop/hadoop-dist/target/hadoop-3.0.0-SNAPSHOT/bin ] \
+	&& export HADOOP_HOME="/home/scott/src/java/apache/hadoop/hadoop-dist/target/hadoop-3.0.0-SNAPSHOT" \
+	&& export HADOOP_COMMON_HOME=$HADOOP_HOME \
+	&& export HADOOP_HDFS_HOME=$HADOOP_HOME \
+	&& export HADOOP_MAPRED_HOME=$HADOOP_HOME \
+	&& export HADOOP_YARN_HOME=$HADOOP_HOME
+
+[ -d /etc/hadoop ] && export HADOOP_CONF_HOME=/etc/hadoop
+
+# OPENNLP
+[ -d /opt/opennlp/bin ] && export OPENNLP_HOME=/opt/opennlp && PATH="$PATH:$OPENNLP_HOME/bin"
 
 # xmodmap -e "remove lock = Caps_Lock"
 # xmodmap -e "clear Lock"
