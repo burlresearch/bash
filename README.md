@@ -13,6 +13,6 @@ $ ln -s bash/.bashrc .
 $ ln -s bash/…
 
 $ # or do link all at once:
-$ for f in bash/.[a-z]*; do echo $f; ln -s $f .; done
+$ for f in bash/.[a-z]*; do echo $f; rm -f `basename $f`; ln -s $f .; done
 $
 ```
