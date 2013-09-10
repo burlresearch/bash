@@ -37,3 +37,5 @@ endfunction
 command! -range=% WordFrequency <line1>,<line2>call WordFrequency()
 
 autocmd BufWritePost *.md,*.text,*.rst silent !/home/scott/bin/markdown % > %.html
+
+call pathogen#infect() 
