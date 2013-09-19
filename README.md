@@ -29,7 +29,6 @@ $ curl 'www.vim.org/scripts/download_script.php?src_id=19375' > ~/.vim/autoload/
 ### [emmet](http://emmet.io/)
 
 ```bash
-$ cd ~/.vim/bundle
-$ git clone http://github.com/mattn/emmet-vim.git
+$ git clone http://github.com/mattn/emmet-vim.git ~/.vim/bundle/emmet-vim
 ```
 
