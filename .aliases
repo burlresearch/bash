@@ -1,3 +1,9 @@
+# FUNCTIONS
+
+gcmd () { md=${1:-./README.md}; [ -f ${md} ] && /usr/bin/google-chrome `realpath ${md}`; }
+
+# ALIASES
+
 alias info='info --vi-keys'
 alias ll='ls -hl'
 alias lk='ls -hlrt'
@@ -24,3 +30,4 @@ alias pyrus='php ~/bin/pyrus.phar'
 alias weberr='tail -f /var/log/apache2/error.log'
 alias ccache='find cache \( -name "*nav*" -o -name "*menu*" \) -exec rm -fv {} \;'
 alias stall='service --status-all'
+alias xclipv='xclip -selection clipboard'
