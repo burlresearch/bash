@@ -1,15 +1,28 @@
-set ic
 set nobackup
 set nowritebackup
 set noswapfile 
 set dir=/tmp
 set backupdir=/tmp
 
-set tabstop=4
-set softtabstop=4
-set shiftwidth=4
-set noexpandtab
-" set smarttab
+" Search Settings
+set incsearch   " show search matches as you type
+set ignorecase  " case insensitive search
+set smartcase   " If a capital letter is included in search, make it case-sensitive
+set nohlsearch  " dont highlight search results
+
+" tab -> spaces
+set expandtab
+set tabstop=2       " a tab is 2 spaces
+set softtabstop=2   " tab size when insterting/pasting
+set shiftwidth=2    " number of spaces to use for autoindenting
+set shiftround      " use multiple of shiftwidth when indenting with '<' and '>'
+set smarttab        " insert tabs on the start of a line according to shiftwidth, not tabstop
+
+" Auto read when a file is changed on disk
+set autoread
+
+" scroll buffer when this close to boundary
+set scrolloff=2
 
 set guifont=Monospace\ 9
 set guioptions=egmrL
@@ -49,4 +62,7 @@ command! -range=% WordFrequency <line1>,<line2>call WordFrequency()
 
 " Pathogen allows autoloading plugins like emmet::zen_coding for vim.
 call pathogen#infect() 
+
+" auto remove whitespace on buffer save
+autocmd! BufWrite * mark ' | silent! %s/\s\+$// | norm ''
 
