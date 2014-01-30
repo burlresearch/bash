@@ -112,8 +112,8 @@ if [ -d /usr/local/maven/bin ]; then
 	export M2_HOME=/usr/local/maven
 	export M2=$M2_HOME/bin
 elif [ -d /usr/share/maven/bin ]; then
-	PATH="$PATH:/usr/share/maven/bin" 
-	export M2_HOME=/usr/share/maven 
+	PATH="$PATH:/usr/share/maven/bin"
+	export M2_HOME=/usr/share/maven
 	export M2=$M2_HOME/bin
 fi
 
@@ -141,8 +141,9 @@ export PS1='\[\033[0;31m\]\u@\h:\w$\[\033[00m\] '   ## red
 [ -f ~/bin/wp-cli/utils/build-local ] &&  source ~/bin/wp-cli/utils/build-local
 
 # RVM - really?
-PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
+# PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
+# [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
+[[ -s "/etc/profile.d/rvm.sh" ]] && source "/etc/profile.d/rvm.sh" # Init RVM
 
 if [ -d $HOME/perl5 ]; then
 	export PERL_LOCAL_LIB_ROOT="$HOME/perl5";
