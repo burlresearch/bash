@@ -66,3 +66,4 @@ call pathogen#infect()
 " auto remove whitespace on buffer save
 autocmd! BufWrite * mark ' | silent! %s/\s\+$// | norm ''
 
+au BufRead,BufNewFile *.md set filetype=markdown
