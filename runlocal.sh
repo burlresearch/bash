@@ -1,11 +1,13 @@
 #!/bin/bash
 
+URL=healthcaretransformation.ca
+
 set -ex
 
-echo "127.0.0.1 76design.com" >> /etc/hosts
+echo "127.0.1.1 $URL" >> /etc/hosts
 
 service apache2 stop
-php -S 76design.com:80
+php -S $URL:80
 service apache2 start
 
 vim /etc/hosts
