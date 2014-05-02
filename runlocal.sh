@@ -1,6 +1,6 @@
 #!/bin/bash
 
-URL=healthcaretransformation.ca
+URL=xxx.ca
 
 set -ex
 
@@ -10,5 +10,5 @@ service apache2 stop
 php -S $URL:80
 service apache2 start
 
-vim /etc/hosts
+vim +999 /etc/hosts
 
