@@ -140,11 +140,6 @@ export PS1='\[\033[0;31m\]\u@\h:\w$\[\033[00m\] '   ## red
 
 [ -f ~/bin/wp-cli/utils/build-local ] &&  source ~/bin/wp-cli/utils/build-local
 
-# RVM - really?
-# PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
-# [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
-[[ -s "/etc/profile.d/rvm.sh" ]] && source "/etc/profile.d/rvm.sh" # Init RVM
-
 if [ -d $HOME/perl5 ]; then
 	export PERL_LOCAL_LIB_ROOT="$HOME/perl5";
 	export PERL_MB_OPT="--install_base $HOME/perl5";
@@ -153,5 +148,11 @@ if [ -d $HOME/perl5 ]; then
 	PATH="$HOME/perl5/bin:$PATH";
 fi
 
-export PATH=".:$PATH"
+export PATH=".:/opt/openssl-1.0.1g/bin:$PATH"
 export CLASSPATH
+
+# RVM - really?
+# PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
+# [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
+[[ -s "/etc/profile.d/rvm.sh" ]] && source "/etc/profile.d/rvm.sh" # Init RVM
+

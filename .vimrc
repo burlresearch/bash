@@ -1,6 +1,8 @@
+" :filetype on
+
 set nobackup
 set nowritebackup
-set noswapfile 
+set noswapfile
 set dir=/tmp
 set backupdir=/tmp
 
@@ -11,12 +13,12 @@ set smartcase   " If a capital letter is included in search, make it case-sensit
 set nohlsearch  " dont highlight search results
 
 " tab -> spaces
-set expandtab
-set tabstop=2       " a tab is 2 spaces
-set softtabstop=2   " tab size when insterting/pasting
-set shiftwidth=2    " number of spaces to use for autoindenting
-set shiftround      " use multiple of shiftwidth when indenting with '<' and '>'
+set noexpandtab     " expand tabs to equivalent spaces
 set smarttab        " insert tabs on the start of a line according to shiftwidth, not tabstop
+set tabstop=4       " a tab is 2 spaces
+set softtabstop=4   " tab size when insterting/pasting
+set shiftwidth=4    " number of spaces to use for autoindenting
+set shiftround      " use multiple of shiftwidth when indenting with '<' and '>'
 
 " Auto read when a file is changed on disk
 set autoread
@@ -24,13 +26,14 @@ set autoread
 " scroll buffer when this close to boundary
 set scrolloff=2
 
-set guifont=Monospace\ 9
+set guifont=Monospace\ 8
 set guioptions=egmrL
-set textwidth=256
+set textwidth=0
+set wrapmargin=0
 
 setl noai nocin nosi inde=
 
-map <F8> A/* XXX */ 
+map <F8> A/* XXX */
 map <F9> :%s/\s\+$//
 map <S-F9> :%s/^\n\+/\r/
 
@@ -61,7 +64,7 @@ command! -range=% WordFrequency <line1>,<line2>call WordFrequency()
 "autocmd BufWritePost *.tex !latex %
 
 " Pathogen allows autoloading plugins like emmet::zen_coding for vim.
-call pathogen#infect() 
+call pathogen#infect()
 
 " auto remove whitespace on buffer save
 autocmd! BufWrite * mark ' | silent! %s/\s\+$// | norm ''
