@@ -1,0 +1,59 @@
+*{margin:0;padding:0}
+body{font:13.34px helvetica,arial,freesans,clean,sans-serif;color:#000;line-height:1.4em;background-color:#F8F8F8;counter-reset:h2;padding:.7em}
+p{line-height:1.5em;margin:1em 0}
+table{font-size:inherit;font:100%;margin:1em}
+table th{border-bottom:1px solid #bbb;padding:.2em 1em}
+table td{border-bottom:1px solid #ddd;padding:.2em 1em}
+input[type=text],input[type=password],input[type=image],textarea{font:99% helvetica,arial,freesans,sans-serif}
+select,option{padding:0 .25em}
+optgroup{margin-top:.5em}
+pre,code{font:12px Monaco,"Courier New","DejaVu Sans Mono","Bitstream Vera Sans Mono",monospace}
+pre{font-size:12px;background-color:#eee;border:1px solid #ddd;line-height:1.5em;color:#444;overflow:auto;-webkit-box-shadow:rgba(0,0,0,0.07) 0 1px 2px inset;-webkit-border-radius:3px;-moz-border-radius:3px;border-radius:3px;margin:1em 0;padding:5px}
+pre code{font-size:12px;background-color:#eee;border:none;display:block;color:#333;background:#f8f8ff;padding:.5em}
+code{font-size:12px;background-color:#f8f8ff;color:#444;border:1px solid #dedede;padding:0 .2em}
+img{border:0;max-width:100%}
+abbr{border-bottom:none}
+a{color:#4183c4;text-decoration:none}
+a:hover{text-decoration:underline}
+a code,a:link code,a:visited code{color:#4183c4}
+h2,h3{margin:1em 0}
+h1,h2,h3,h4,h5,h6{border:0}
+h1{font-size:170%;border-top:4px solid #aaa;padding-top:.5em;margin-top:1.5em}
+h1:first-child{margin-top:0;padding-top:.25em;border-top:none}
+h2{font-size:150%;margin-top:1.5em;border-top:4px solid #e0e0e0;padding-top:.5em;counter-reset:h3}
+h3{margin-top:1em;counter-reset:h4}
+hr{border:1px solid #ddd}
+ul li,ol li{margin-top:.5em;margin-bottom:.5em}
+ul ul,ul ol,ol ol,ol ul{margin-top:0;margin-bottom:0}
+blockquote{border-left:5px solid #ddd;padding-left:.6em;color:#555;margin:1em 0}
+dt{font-weight:700;margin-left:1em}
+dd{margin-left:2em;margin-bottom:1em}
+pre .comment,pre .template_comment,pre .diff .header,pre .javadoc{color:#998;font-style:italic}
+pre .keyword,pre .css .rule .keyword,pre .winutils,pre .javascript .title,pre .nginx .title,pre .subst,pre .request,pre .status{color:#333;font-weight:700}
+pre .number,pre .hexcolor,pre .ruby .constant{color:#099}
+pre .string,pre .tag .value,pre .phpdoc,pre .tex .formula{color:#d14}
+pre .title,pre .id,pre .coffeescript .params,pre .scss .preprocessor{color:#900;font-weight:700}
+pre .javascript .title,pre .lisp .title,pre .clojure .title,pre .subst{font-weight:400}
+pre .tag,pre .tag .title,pre .rules .property,pre .django .tag .keyword{color:navy;font-weight:400}
+pre .attribute,pre .variable,pre .lisp .body{color:teal}
+pre .regexp{color:#009926}
+pre .symbol,pre .ruby .symbol .string,pre .lisp .keyword,pre .tex .special,pre .prompt{color:#990073}
+pre .built_in,pre .lisp .title,pre .clojure .built_in{color:#0086b3}
+pre .preprocessor,pre .pi,pre .doctype,pre .shebang,pre .cdata{color:#999;font-weight:700}
+pre .deletion{background:#fdd}
+pre .addition{background:#dfd}
+pre .diff .change{background:#0086b3}
+pre .chunk{color:#aaa}
+h4{counter-reset:h5}
+h5{counter-reset:h6}
+h2:before{counter-increment:h2;content:counter(h2) ". "}
+h3:before{counter-increment:h3;content:counter(h2) "." counter(h3) ". "}
+h4:before{counter-increment:h4;content:counter(h2) "." counter(h3) "." counter(h4) ". "}
+h5:before{counter-increment:h5;content:counter(h2) "." counter(h3) "." counter(h4) "." counter(h5) ". "}
+h6:before{counter-increment:h6;content:counter(h2) "." counter(h3) "." counter(h4) "." counter(h5) "." counter(h6) ". "}
+h2.nocount:before,h3.nocount:before,h4.nocount:before,h5.nocount:before,h6.nocount:before{content:"";counter-increment:none}
+ul,ol{margin:1em 0 1em 2em}
+pre .class .title,pre .haskell .type,pre .vhdl .literal,pre .tex .command,pre .class{color:#458;font-weight:700}
+@media screen and min-width 768px {
+body{width:748px;margin:10px auto}
+}
