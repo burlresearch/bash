@@ -93,6 +93,7 @@ umask 002
 [ -d /usr/local/phpstorm/bin ] && PATH="$PATH:/usr/local/phpstorm/bin"
 [ -d /usr/local/netbeans/bin ] && PATH="$PATH:/usr/local/netbeans/bin"
 [ -d /usr/local/idea/bin ] && PATH="$PATH:/usr/local/idea/bin"
+[ -d /opt/idea/bin ] && PATH="$PATH:/opt/idea/bin"
 [ -d ~/.mozilla ] && export MOZILLA_HOME=~/.mozilla
 
 # ZEND
