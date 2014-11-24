@@ -1,6 +1,10 @@
 # FUNCTIONS
 
-gcmd () { md=${1:-./README.md}; [ -f ${md} ] && /usr/bin/google-chrome `realpath ${md}`; }
+if [ -x "/usr/bin/realpath" ]; then
+    gcmd () { md=${1:-./README.md}; [ -f ${md} ] && /usr/bin/google-chrome `realpath ${md}`; }
+  else
+    alias realpath='readlink -f'
+fi
 
 # ALIASES
 
