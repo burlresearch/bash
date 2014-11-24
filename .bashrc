@@ -149,7 +149,8 @@ if [ -d $HOME/perl5 ]; then
 	PATH="$HOME/perl5/bin:$PATH";
 fi
 
-export PATH=".:/opt/openssl-1.0.1g/bin:$PATH"
+[ -d /opt/openssl-1.0.1g/bin ] && export PATH="/opt/openssl-1.0.1g/bin:$PATH"
+export PATH=".:$PATH"
 export CLASSPATH
 
 # RVM - really?
