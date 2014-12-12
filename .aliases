@@ -9,8 +9,9 @@ alias ll='ls -hl'
 alias lk='ls -hlrt'
 alias la='ls -Al'
 alias l='ls -CF'
-
+alias c='clear'
 alias ,='cd ..'
+
 alias tarrm='tar --remove-files'
 alias term='gnome-terminal --window-with-profile=Ubuntu --geometry 120x30'
 alias cim='ssh -Xl scottyb sutton.cim.mcgill.ca'
@@ -32,3 +33,4 @@ alias ccache='find cache \( -name "*nav*" -o -name "*menu*" \) -exec rm -fv {} \
 alias stall='service --status-all'
 alias xclipv='xclip -selection clipboard'
 alias prxy='ssh -C2TnN -D 8080 as'
+alias dig='dig +noall +answer'
