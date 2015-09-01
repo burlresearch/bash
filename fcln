@@ -1,0 +1,14 @@
+#!/bin/bash
+
+rename 's/\s*([[:punct:]])\s*/$1/g' *
+## rename 's/\s+(.*)\s+/$1/g' *
+rename 's/\s+/_/g' *
+rename 's/_\././g' *
+rename 's/-\././g' *
+rename "s/'//g" *
+rename "s/[()]/_/g" *
+rename 's/_+/_/g' *
+rename 's/-+/-/g' *
+rename 's/_-/-/g' *
+rename 's/-_/-/g' *
+

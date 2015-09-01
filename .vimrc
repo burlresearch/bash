@@ -64,7 +64,8 @@ command! -range=% WordFrequency <line1>,<line2>call WordFrequency()
 "autocmd BufWritePost *.tex !latex %
 
 " Pathogen allows autoloading plugins like emmet::zen_coding for vim.
-call pathogen#infect()
+" -- not default --
+" call pathogen#infect()
 
 " auto remove whitespace on buffer save
 autocmd! BufWrite * mark ' | silent! %s/\s\+$// | norm ''
