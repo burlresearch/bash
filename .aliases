@@ -34,3 +34,5 @@ alias dig='dig +noall +answer'
 
 alias drush='drush -y'
 alias dcc='echo "flush_all" | nc localhost 11211; drush cc all;'
+alias iptl='iptables --line-numbers -nL'
+
