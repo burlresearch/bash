@@ -1,5 +1,5 @@
 bash resource config files
-===
+==========================
 
 Some basic config files for linux `$HOME` configs, _a la burl_.
 
@@ -9,12 +9,7 @@ One way that makes this easy to deploy on a new server:
 
 ```bash
 $ git clone https://github.com/burlresearch/bash
-$ ln -s bash/.bashrc .
-$ ln -s bash/…
-
-$ # or link them all at once:
-
-$ for f in bash/.[a-z]*; do echo $f; rm -f `basename $f`; ln -s $f .; done
+$ for f in bash/*rc; do RC=`basename $f`; echo $f; rm -f .$RC;  ln -s $f .$RC; done
 ```
 
 ## install vim::zen\_coding

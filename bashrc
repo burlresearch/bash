@@ -96,6 +96,9 @@ umask 002
 [ -d /opt/idea/bin ] && PATH="$PATH:/opt/idea/bin"
 [ -d ~/.mozilla ] && export MOZILLA_HOME=~/.mozilla
 
+# IDEA IntelliJ - ibus
+export IBUS_ENABLE_SYNC_MODE=1
+
 # ZEND
 # [ -d $HOME/src/zend/bin ] && PATH="$PATH:$HOME/src/zend/bin"
 
@@ -158,24 +161,9 @@ fi
 [ -d /opt/openssl-1.0.1g/bin ] && export PATH="/opt/openssl-1.0.1g/bin:$PATH"
 [ -d ~/.composer/vendor/bin ] && PATH="$PATH:~/.composer/vendor/bin"
 
-export PATH=".:$PATH"
+export PATH=".:$HOME/bin:$PATH"
 export CLASSPATH
-export APP_ENV="scott"	# SCC
 
-# RVM - really?
-# PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
-# [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
-[[ -s "/etc/profile.d/rvm.sh" ]] && source "/etc/profile.d/rvm.sh" # Init RVM
-
-
-# AWS3 Keys: salient
-export AWS_ACCESS_KEY_ID=AKIAIXQRL2DZZUC6F3RQ
-export AWS_SECRET_ACCESS_KEY=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
-
-# OPENSSL
-#enter aes-256-cbc encryption password:
-#Verifying - enter aes-256-cbc encryption password:
-#salt=F1A7C674E0CC1A10
-#key=01BF27F756CF6ED0A73770B1830BDAEBE2E6DEA9C14A552BDCE70F1B8EF9A20F
-#iv =4C71AA8093A4EF1F3AF3F0B6A435BAFF
+# ruby on rails - rbenv
+[ -f $HOME/.rubyrc ] && source $HOME/.rubyrc
 
