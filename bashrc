@@ -79,21 +79,24 @@ alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo
 
 ## customizations below here
 
-[ -f ~/.aliases ] && . ~/.aliases
-[ -f /etc/bash_completion ] && ! shopt -oq posix && . /etc/bash_completion
-[ -f $HOME/.tidyrc ] && export HTML_TIDY="$HOME/.tidyrc"
-
 set -o vi
 export EDITOR=vim
+export VISUAL=vim
+umask 002			# umask 007 - this is a little harsh w.r.t. playing nice with others - perhaps on server
 
-# umask 007 - this is a little harsh w.r.t. playing nice with others - perhaps on server
-umask 002
+[ -f ~/.aliases ] && . ~/.aliases
+[ -f /etc/bash_completion ] && ! shopt -oq posix && . /etc/bash_completion
+[ -f ~/.tidyrc ] && export HTML_TIDY="~/.tidyrc"
+[ -f ~/.envrc ] && . ~/.envrc
 
 [ -d /opt/phpstorm/bin ] && PATH="$PATH:/opt/phpstorm/bin"
 [ -d /usr/local/phpstorm/bin ] && PATH="$PATH:/usr/local/phpstorm/bin"
 [ -d /usr/local/netbeans/bin ] && PATH="$PATH:/usr/local/netbeans/bin"
 [ -d /usr/local/idea/bin ] && PATH="$PATH:/usr/local/idea/bin"
 [ -d /opt/idea/bin ] && PATH="$PATH:/opt/idea/bin"
+[ -d /opt/rubymine/bin ] && PATH="$PATH:/opt/rubymine/bin"
+[ -d /opt/pycharm/bin ] && PATH="$PATH:/opt/pycharm/bin"
+[ -d /opt/datagrip/bin ] && PATH="$PATH:/opt/datagrip/bin"
 [ -d ~/.mozilla ] && export MOZILLA_HOME=~/.mozilla
 
 # IDEA IntelliJ - ibus
@@ -106,6 +109,7 @@ export IBUS_ENABLE_SYNC_MODE=1
 [ -d /opt/java/bin ] && PATH="$PATH:/opt/java/bin" && export JDK_HOME=/opt/java && export JAVA_HOME=/opt/java
 [ -a /opt/mysql-connector-java.jar ] && CLASSPATH="/opt/mysql-connector-java.jar"
 [ -d $HOME/src/java ] && CLASSPATH="$CLASSPATH:$HOME/src/java/jars/*"
+[ -d /usr/share/tomcat8 ] && export CATALINA_HOME=/usr/share/tomcat8
 
 # RESEARCH
 [ -d /home/scott/src/java/research/tamingtext ] && export TT_HOME=/home/scott/src/java/research/tamingtext
@@ -159,11 +163,10 @@ if [ -d $HOME/perl5 ]; then
 fi
 
 [ -d /opt/openssl-1.0.1g/bin ] && export PATH="/opt/openssl-1.0.1g/bin:$PATH"
-[ -d ~/.composer/vendor/bin ] && PATH="$PATH:~/.composer/vendor/bin"
+[ -d $HOME/.composer/vendor/bin ] && PATH="$PATH:$HOME/.composer/vendor/bin"
 
-export PATH=".:$HOME/bin:$PATH"
+export PATH=".:$HOME/bin:$PATH:./vendor/bin"
 export CLASSPATH
 
 # ruby on rails - rbenv
 [ -f $HOME/.rubyrc ] && source $HOME/.rubyrc
-

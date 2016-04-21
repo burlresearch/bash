@@ -6,14 +6,14 @@ output-xml: no
 input-xml: no
 show-warnings: yes
 numeric-entities: yes
-quote-marks: yes
-quote-nbsp: yes
-quote-ampersand: no
+quote-marks: no
+quote-nbsp: no
+quote-ampersand: yes
 break-before-br: no
 uppercase-tags: no
 uppercase-attributes: no
 char-encoding: utf8
-new-inline-tags: cfif, cfelse, math, mroot, 
+new-inline-tags: cfif, cfelse, math, mroot,
   mrow, mi, mn, mo, msqrt, mfrac, msubsup, munderover,
   munder, mover, mmultiscripts, msup, msub, mtext,
   mprescripts, mtable, mtr, mtd, mth

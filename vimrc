@@ -1,3 +1,11 @@
+" git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+"
+
+set nocompatible              " be iMproved, required
+filetype off                  " required
+
+so ~/.vim/plugins.vim
+
 " :filetype on
 
 set nobackup
@@ -25,22 +33,25 @@ set autoread
 
 " scroll buffer when this close to boundary
 set scrolloff=2
-
-set guifont=Monospace\ 8
+set guifont=Monospace\ 10
 set guioptions=egmrL
 set textwidth=0
 set wrapmargin=0
-
 setl noai nocin nosi inde=
-
-map <F8> A/* XXX */
-map <F9> :%s/\s\+$//
-map <S-F9> :%s/^\n\+/\r/
-
 set number
+set splitbelow
+set splitright
 
+" F5 for datestamps
+" F8 to strip filenames from directories
+" F9 to rtrim('\s')
+" S-F9 to collapse newlines
+" fdm4 change line token map: <F8> A/* XXX */
 nmap <F5> a<C-R>=strftime("%Y.%m.%d %a %I:%M %p")<CR><Esc>
 imap <F5> <C-R>=strftime("%Y.%m.%d %a %I:%M %p")<CR>
+map <F8> :%s;\v(.*/).*;\1;
+map <F9> :%s/\s\+$//
+map <S-F9> :%s/^\n\+/\r/
 
 function! WordFrequency() range
   let all = split(join(getline(a:firstline, a:lastline)), '\A\+')

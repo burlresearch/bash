@@ -1,3 +1,5 @@
+" source this from .vimrc for vundle plugin management
+"
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()

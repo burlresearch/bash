@@ -3,3 +3,5 @@ export PATH="$HOME/.rbenv/bin:$PATH"
 eval "$(rbenv init -)"
 export PATH="$HOME/.rbenv/plugins/ruby-build/bin:$PATH"
 
+export RAILS_ENV="development"
+export RACK_ENV="development"
