@@ -1,3 +1,7 @@
+set nocompatible	" be iMproved, required
+
+so ~/.vim/plugins.vim
+
 " :filetype on
 
 set nobackup
@@ -13,12 +17,11 @@ set smartcase   " If a capital letter is included in search, make it case-sensit
 set nohlsearch  " dont highlight search results
 
 " tab -> spaces
-set noexpandtab     " expand tabs to equivalent spaces
+set expandtab		" expand tabs to equivalent spaces
 set shiftround      " use multiple of shiftwidth when indenting with '<' and '>'
-set shiftwidth=4    " number of spaces to use for autoindenting
-set smarttab        " insert tabs on the start of a line according to shiftwidth, not tabstop
-set softtabstop=4   " tab size when insterting/pasting
-set tabstop=4       " a tab is N spaces
+set shiftwidth=2    " number of spaces to use for autoindenting
+set tabstop=2       " a tab is N spaces
+set softtabstop=2   " tab size when insterting/pasting
 
 " Auto read when a file is changed on disk
 set autoread
@@ -26,21 +29,34 @@ set autoread
 " scroll buffer when this close to boundary
 set scrolloff=2
 
-set guifont=Monospace\ 8
+set guifont=Monospace\ 9
 set guioptions=egmrL
 set textwidth=0
 set wrapmargin=0
 
 setl noai nocin nosi inde=
+set splitbelow
+set splitright
+set number			" line numbering
+
+
+"----------Mappings----------"
+
+nmap <Leader>ev :e ~/.vimrc<cr>
+nmap <D-1> :NERDTreeToggle<cr>
 
 map <F8> A/* XXX */
 map <F9> :%s/\s\+$//
 map <S-F9> :%s/^\n\+/\r/
-
-set number
-
 nmap <F5> a<C-R>=strftime("%Y.%m.%d %a %I:%M %p")<CR><Esc>
 imap <F5> <C-R>=strftime("%Y.%m.%d %a %I:%M %p")<CR>
+
+"----------Laravel----------"
+
+nmap <Leader>lr :e app/Http/routes.php<cr>
+
+
+"----------Functions----------"
 
 function! WordFrequency() range
   let all = split(join(getline(a:firstline, a:lastline)), '\A\+')
@@ -71,3 +87,11 @@ command! -range=% WordFrequency <line1>,<line2>call WordFrequency()
 autocmd! BufWrite * mark ' | silent! %s/\s\+$// | norm ''
 
 au BufRead,BufNewFile *.md set filetype=markdown
+
+
+" Notes and Tips
+" <Leader> - '\' until set via `let mapleader=,`
+" zz - center the line under the curson
+" imap - napping in insert-mode
+" nmap - mapping in normal-mode
+
