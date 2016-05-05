@@ -37,4 +37,10 @@ alias webacc='tail -f /var/log/nginx/access.log'
 alias drush='drush -y'
 alias dcc='echo "flush_all" | nc localhost 11211; drush cc all;'
 alias iptl='iptables --line-numbers -nL'
+alias apt-get='apt-get -y'
+
+alias sshhqa='ssh -lscottb dev.hydroottawa.com'
+alias sshcas='ssh ec2-user@cca-cas.ind.ninja'
+alias sshcca='ssh -lroot cca.ind.ninja -p 11022'
+alias sshcaubo='ssh -lroot -p 11022 74.117.143.215'
 

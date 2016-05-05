@@ -6,9 +6,9 @@ output-xml: no
 input-xml: no
 show-warnings: yes
 numeric-entities: yes
-quote-marks: yes
-quote-nbsp: yes
-quote-ampersand: no
+quote-marks: no
+quote-nbsp: no
+quote-ampersand: yes
 break-before-br: no
 uppercase-tags: no
 uppercase-attributes: no

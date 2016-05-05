@@ -1,4 +1,12 @@
+<<<<<<< HEAD
 set nocompatible	" be iMproved, required
+=======
+" git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+"
+
+set nocompatible              " be iMproved, required
+filetype off                  " required
+>>>>>>> 3dc4d900fef9120ea127da486c89b0b2d5275145
 
 so ~/.vim/plugins.vim
 
@@ -28,13 +36,17 @@ set autoread
 
 " scroll buffer when this close to boundary
 set scrolloff=2
+<<<<<<< HEAD
 
 set guifont=Monospace\ 9
+=======
+set guifont=Monospace\ 10
+>>>>>>> 3dc4d900fef9120ea127da486c89b0b2d5275145
 set guioptions=egmrL
 set textwidth=0
 set wrapmargin=0
-
 setl noai nocin nosi inde=
+<<<<<<< HEAD
 set splitbelow
 set splitright
 set number			" line numbering
@@ -48,8 +60,22 @@ nmap <D-1> :NERDTreeToggle<cr>
 map <F8> A/* XXX */
 map <F9> :%s/\s\+$//
 map <S-F9> :%s/^\n\+/\r/
+=======
+set number
+set splitbelow
+set splitright
+
+" F5 for datestamps
+" F8 to strip filenames from directories
+" F9 to rtrim('\s')
+" S-F9 to collapse newlines
+" fdm4 change line token map: <F8> A/* XXX */
+>>>>>>> 3dc4d900fef9120ea127da486c89b0b2d5275145
 nmap <F5> a<C-R>=strftime("%Y.%m.%d %a %I:%M %p")<CR><Esc>
 imap <F5> <C-R>=strftime("%Y.%m.%d %a %I:%M %p")<CR>
+map <F8> :%s;\v(.*/).*;\1;
+map <F9> :%s/\s\+$//
+map <S-F9> :%s/^\n\+/\r/
 
 "----------Laravel----------"
 
