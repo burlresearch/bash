@@ -84,24 +84,18 @@ export EDITOR=vim
 export VISUAL=vim
 umask 002			# umask 007 - this is a little harsh w.r.t. playing nice with others - perhaps on server
 
-[ -f ~/.aliases ] && . ~/.aliases
-[ -f /etc/bash_completion ] && ! shopt -oq posix && . /etc/bash_completion
-[ -f ~/.tidyrc ] && export HTML_TIDY="~/.tidyrc"
-[ -f ~/.envrc ] && . ~/.envrc
-
-[ -d /opt/phpstorm/bin ] && PATH="$PATH:/opt/phpstorm/bin"
-[ -d /usr/local/phpstorm/bin ] && PATH="$PATH:/usr/local/phpstorm/bin"
-[ -d /usr/local/netbeans/bin ] && PATH="$PATH:/usr/local/netbeans/bin"
-[ -d /opt/idea/bin ] && PATH="$PATH:/opt/idea/bin"
-<<<<<<< HEAD
-[ -d /usr/local/idea/bin ] && PATH="$PATH:/usr/local/idea/bin"
-[ -d /opt/rubymine/bin ] && PATH="$PATH:/opt/rubymine/bin"
-=======
-[ -d /opt/rubymine/bin ] && PATH="$PATH:/opt/rubymine/bin"
-[ -d /opt/pycharm/bin ] && PATH="$PATH:/opt/pycharm/bin"
-[ -d /opt/datagrip/bin ] && PATH="$PATH:/opt/datagrip/bin"
->>>>>>> 3dc4d900fef9120ea127da486c89b0b2d5275145
-[ -d ~/.mozilla ] && export MOZILLA_HOME=~/.mozilla
+[ -f ~/.aliases ]								&& . ~/.aliases
+[ -f /etc/bash_completion ]			&& ! shopt -oq posix && . /etc/bash_completion
+[ -f ~/.tidyrc ]								&& export HTML_TIDY="~/.tidyrc"
+[ -f ~/.envrc ]									&& . ~/.envrc
+[ -d /opt/phpstorm/bin ]				&& PATH="$PATH:/opt/phpstorm/bin"
+[ -d /usr/local/phpstorm/bin ]	&& PATH="$PATH:/usr/local/phpstorm/bin"
+[ -d /usr/local/netbeans/bin ]	&& PATH="$PATH:/usr/local/netbeans/bin"
+[ -d /opt/idea/bin ]						&& PATH="$PATH:/opt/idea/bin"
+[ -d /opt/rubymine/bin ]				&& PATH="$PATH:/opt/rubymine/bin"
+[ -d /opt/pycharm/bin ]					&& PATH="$PATH:/opt/pycharm/bin"
+[ -d /opt/datagrip/bin ]				&& PATH="$PATH:/opt/datagrip/bin"
+[ -d ~/.mozilla ]								&& export MOZILLA_HOME=~/.mozilla
 
 # IDEA IntelliJ - ibus
 export IBUS_ENABLE_SYNC_MODE=1
@@ -167,22 +161,13 @@ if [ -d $HOME/perl5 ]; then
 fi
 
 [ -d /opt/openssl-1.0.1g/bin ] && export PATH="/opt/openssl-1.0.1g/bin:$PATH"
-<<<<<<< HEAD
 [ -d ~/.composer/vendor/bin ] && PATH="$PATH:~/.composer/vendor/bin"
-PATH="$PATH:./vendor/bin"
-=======
-[ -d $HOME/.composer/vendor/bin ] && PATH="$PATH:$HOME/.composer/vendor/bin"
->>>>>>> 3dc4d900fef9120ea127da486c89b0b2d5275145
 
 export PATH=".:$HOME/bin:$PATH:./vendor/bin"
 export CLASSPATH
 
 # ruby on rails - rbenv
 [ -f $HOME/.rubyrc ] && source $HOME/.rubyrc
-<<<<<<< HEAD
 
 # ASP.NET
 [ -s $HOME/.dnx/dnvm/dnvm.sh ] && . $HOME/.dnx/dnvm/dnvm.sh
-
-=======
->>>>>>> 3dc4d900fef9120ea127da486c89b0b2d5275145
