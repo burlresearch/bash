@@ -1,6 +1,5 @@
 " git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 "
-
 set nocompatible              " be iMproved, required
 filetype off                  " required
 
@@ -21,27 +20,31 @@ set smartcase   " If a capital letter is included in search, make it case-sensit
 set nohlsearch  " dont highlight search results
 
 " tab -> spaces
-set noexpandtab     " expand tabs to equivalent spaces
+set expandtab		" expand tabs to equivalent spaces
 set shiftround      " use multiple of shiftwidth when indenting with '<' and '>'
-set shiftwidth=4    " number of spaces to use for autoindenting
-set smarttab        " insert tabs on the start of a line according to shiftwidth, not tabstop
-set softtabstop=4   " tab size when insterting/pasting
-set tabstop=4       " a tab is N spaces
+set shiftwidth=2    " number of spaces to use for autoindenting
+set tabstop=2       " a tab is N spaces
+set softtabstop=2   " tab size when insterting/pasting
 
 " Auto read when a file is changed on disk
 set autoread
 
 " scroll buffer when this close to boundary
 set scrolloff=2
-set guifont=Monospace\ 10
+set guifont=Monospace\ 9
 set guioptions=egmrL
 set textwidth=0
 set wrapmargin=0
-setl noai nocin nosi inde=
-set number
+set noai
+set nocin
+set nosi
+set inde=
 set splitbelow
 set splitright
+set number			" line numbering
 
+
+"----------Mappings----------"
 " F5 for datestamps
 " F8 to strip filenames from directories
 " F9 to rtrim('\s')
@@ -52,6 +55,13 @@ imap <F5> <C-R>=strftime("%F %a %H:%M")<CR>
 map <F8> :%s;\v(.*/).*;\1;
 map <F9> :%s/\s\+$//
 map <S-F9> :%s/^\n\+/\r/
+
+"----------Laravel----------"
+
+nmap <Leader>lr :e app/Http/routes.php<cr>
+
+
+"----------Functions----------"
 
 function! WordFrequency() range
   let all = split(join(getline(a:firstline, a:lastline)), '\A\+')
@@ -82,3 +92,11 @@ command! -range=% WordFrequency <line1>,<line2>call WordFrequency()
 autocmd! BufWrite * mark ' | silent! %s/\s\+$// | norm ''
 
 au BufRead,BufNewFile *.md set filetype=markdown
+
+
+" Notes and Tips
+" <Leader> - '\' until set via `let mapleader=,`
+" zz - center the line under the curson
+" imap - napping in insert-mode
+" nmap - mapping in normal-mode
+

@@ -79,40 +79,43 @@ alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo
 
 ## customizations below here
 
+[ -f ~/.aliases ] && . ~/.aliases
+[ -f /etc/bash_completion ] && ! shopt -oq posix && . /etc/bash_completion
+[ -f $HOME/.tidyrc ] && export HTML_TIDY="$HOME/.tidyrc"
+
 set -o vi
 export EDITOR=vim
-export VISUAL=vim
-umask 002			# umask 007 - this is a little harsh w.r.t. playing nice with others - perhaps on server
 
-[ -f ~/.aliases ]								&& . ~/.aliases
-[ -f /etc/bash_completion ]			&& ! shopt -oq posix && . /etc/bash_completion
-[ -f ~/.tidyrc ]								&& export HTML_TIDY="~/.tidyrc"
-[ -f ~/.envrc ]									&& . ~/.envrc
-[ -d /opt/phpstorm/bin ]				&& PATH="$PATH:/opt/phpstorm/bin"
-[ -d /usr/local/phpstorm/bin ]	&& PATH="$PATH:/usr/local/phpstorm/bin"
-[ -d /usr/local/netbeans/bin ]	&& PATH="$PATH:/usr/local/netbeans/bin"
-[ -d /opt/idea/bin ]						&& PATH="$PATH:/opt/idea/bin"
-[ -d /opt/rubymine/bin ]				&& PATH="$PATH:/opt/rubymine/bin"
-[ -d /opt/pycharm/bin ]					&& PATH="$PATH:/opt/pycharm/bin"
-[ -d /opt/datagrip/bin ]				&& PATH="$PATH:/opt/datagrip/bin"
-[ -d ~/.mozilla ]								&& export MOZILLA_HOME=~/.mozilla
+# umask 007 - this is a little harsh w.r.t. playing nice with others - perhaps on server
+umask 027
 
-## IDEA IntelliJ - ibus
+[ -d /usr/local/bin ] && PATH="$PATH:/usr/local/bin"
+[ -d /opt/phpstorm/bin ] && PATH="$PATH:/opt/phpstorm/bin"
+[ -d /usr/local/phpstorm/bin ] && PATH="$PATH:/usr/local/phpstorm/bin"
+[ -d /usr/local/netbeans/bin ] && PATH="$PATH:/usr/local/netbeans/bin"
+[ -d /usr/local/idea/bin ] && PATH="$PATH:/usr/local/idea/bin"
+[ -d /opt/idea/bin ] && PATH="$PATH:/opt/idea/bin"
+[ -d ~/.mozilla ] && export MOZILLA_HOME=~/.mozilla
+[ -d /usr/share/elasticsearch ] && PATH="$PATH:/usr/share/elasticsearch/bin"
+
+# [IDEA-78860 Keyboard input sometimes is blocked when IBus is active](https://youtrack.jetbrains.com/issue/IDEA-78860) 
 export IBUS_ENABLE_SYNC_MODE=1
 
-## ZEND
+# ZEND
 # [ -d $HOME/src/zend/bin ] && PATH="$PATH:$HOME/src/zend/bin"
 
-## JAVA
-[ -d /opt/java/bin ] && PATH="$PATH:/opt/java/bin" && export JDK_HOME=/opt/java && export JAVA_HOME=/opt/java
+# JAVA
+#[ -d /usr/bin ] && PATH="$PATH:/usr/bin" && export JDK_HOME=/usr && export JAVA_HOME=/usr
+#[ -d /opt/java/bin ] && PATH="$PATH:/opt/java/bin" && export JDK_HOME=/opt/java && export JAVA_HOME=/opt/java
+#[ -d /opt/java/bin ] && export JDK_HOME=/opt/java && export JAVA_HOME=/opt/java
+[ -d /opt/java/bin ] && export JDK_HOME=/opt/java && export JAVA_HOME=/usr/lib/jvm/oracle_jdk8
 [ -a /opt/mysql-connector-java.jar ] && CLASSPATH="/opt/mysql-connector-java.jar"
 [ -d $HOME/src/java ] && CLASSPATH="$CLASSPATH:$HOME/src/java/jars/*"
-[ -d /usr/share/tomcat8 ] && export CATALINA_HOME=/usr/share/tomcat8
 
-## RESEARCH
+# RESEARCH
 [ -d /home/scott/src/java/research/tamingtext ] && export TT_HOME=/home/scott/src/java/research/tamingtext
 
-## MAVEN
+# MAVEN
 if [ -d /usr/local/maven/bin ]; then
 	PATH="$PATH:/usr/local/maven/bin"
 	export M2_HOME=/usr/local/maven
@@ -123,8 +126,9 @@ elif [ -d /usr/share/maven/bin ]; then
 	export M2=$M2_HOME/bin
 fi
 
-## APACHE
+# APACHE
 [ -d /home/scott/src/java/apache/mahout ] && export MAHOUT_HOME=/home/scott/src/java/apache/mahout && PATH="$PATH:$MAHOUT_HOME/bin"
+[ -d /home/scott/src/git/mahout ] && export MAHOUT_HOME=/home/scott/src/git/mahout && PATH="$PATH:$MAHOUT_HOME/bin"
 
 [ -d /home/scott/src/java/apache/hadoop/hadoop-dist/target/hadoop-3.0.0-SNAPSHOT/bin ] \
 	&& export HADOOP_HOME="/home/scott/src/java/apache/hadoop/hadoop-dist/target/hadoop-3.0.0-SNAPSHOT" \
@@ -135,14 +139,12 @@ fi
 
 [ -d /etc/hadoop ] && export HADOOP_CONF_HOME=/etc/hadoop
 
-## OPENNLP
+# OPENNLP
 [ -d /opt/opennlp/bin ] && export OPENNLP_HOME=/opt/opennlp && PATH="$PATH:$OPENNLP_HOME/bin"
 
-## GOLANG
-[ -d $HOME/src/go ] && export GOPATH=$HOME/src/go && PATH="$PATH:$GOPATH/bin"
-
-## ELASTICSEARCH
-[ -d /usr/share/elasticsearch ] && export ELASTIC=/usr/share/elasticsearch && PATH="$PATH:$ELASTIC/bin"
+# GO LANG
+[ -d /usr/local/go ] && PATH="$PATH:/usr/local/go/bin"
+[ -d /home/scott/src/go ] && export GOPATH=/home/scott/src/go && export PATH="$PATH:$GOPATH/bin"
 
 # xmodmap -e "remove lock = Caps_Lock"
 # xmodmap -e "clear Lock"
@@ -161,15 +163,12 @@ if [ -d $HOME/perl5 ]; then
 fi
 
 [ -d /opt/openssl-1.0.1g/bin ] && export PATH="/opt/openssl-1.0.1g/bin:$PATH"
-[ -d ~/.composer/vendor/bin ] && PATH="$PATH:~/.composer/vendor/bin"
 
-export PATH=".:$HOME/bin:$PATH:./vendor/bin"
+export PATH=".:$PATH:$HOME/bin"
 export CLASSPATH
 
-## ruby on rails - rbenv
-[ -f $HOME/.rubyrc ] && source $HOME/.rubyrc
-
-## ASP.NET
-[ -s "/home/scott/.dnx/dnvm/dnvm.sh" ] && . "/home/scott/.dnx/dnvm/dnvm.sh"
-[ -s $HOME/.dnx/dnvm/dnvm.sh ] && . $HOME/.dnx/dnvm/dnvm.sh   # Load dnvm
+# RVM - really?
+# PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
+#[[ -s "/etc/profile.d/rvm.sh" ]] && source "/etc/profile.d/rvm.sh" # Init RVM
 

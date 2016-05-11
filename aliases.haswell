@@ -1,0 +1,32 @@
+# FUNCTIONS
+
+if [ -x "/usr/bin/realpath" ]; then
+    gcmd () { md=${1:-./README.md}; [ -f ${md} ] && /usr/bin/google-chrome `realpath ${md}`; }
+  else
+    alias realpath='readlink -f'
+fi
+
+# ALIASES
+
+alias info='info --vi-keys'
+alias ll='ls -hl'
+alias lk='ls -hlrt'
+alias la='ls -Al'
+alias l='ls -CF'
+
+alias ,='cd ..'
+alias tarrm='tar --remove-files'
+alias dux='du --max-depth=1'
+alias d='date +%y%m%d'
+alias s='date +%s'
+alias rs='rsync -Pavz'
+alias rmsync='rsync --remove-source-files -Pavz'
+alias pyrus='php ~/bin/pyrus.phar'
+alias weberr='tail -f /var/log/httpd/error_log'
+alias ccache='find cache \( -name "*nav*" -o -name "*menu*" \) -exec rm -fv {} \;'
+alias stall='service --status-all'
+alias xclipv='xclip -selection clipboard'
+alias yum='yum -y'
+
+alias mbo='ssh mybywardoffice.com@s203788.gridserver.com'
+alias sshr='ssh -lroot '
