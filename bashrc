@@ -170,3 +170,5 @@ export CLASSPATH
 
 # ruby on rails - rbenv
 [ -f $HOME/.rubyrc ] && source $HOME/.rubyrc
+
+[ -s "/home/scott/.dnx/dnvm/dnvm.sh" ] && . "/home/scott/.dnx/dnvm/dnvm.sh" # Load dnvm

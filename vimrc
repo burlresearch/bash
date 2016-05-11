@@ -4,7 +4,7 @@
 set nocompatible              " be iMproved, required
 filetype off                  " required
 
-so ~/.vim/plugins.vim
+"so ~/.vim/plugins.vim
 
 " :filetype on
 
@@ -47,8 +47,8 @@ set splitright
 " F9 to rtrim('\s')
 " S-F9 to collapse newlines
 " fdm4 change line token map: <F8> A/* XXX */
-nmap <F5> a<C-R>=strftime("%Y.%m.%d %a %I:%M %p")<CR><Esc>
-imap <F5> <C-R>=strftime("%Y.%m.%d %a %I:%M %p")<CR>
+nmap <F5> a<C-R>=strftime("%F %a %H:%M")<CR><Esc>
+imap <F5> <C-R>=strftime("%F %a %H:%M")<CR>
 map <F8> :%s;\v(.*/).*;\1;
 map <F9> :%s/\s\+$//
 map <S-F9> :%s/^\n\+/\r/

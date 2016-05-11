@@ -44,3 +44,6 @@ alias sshcas='ssh ec2-user@cca-cas.ind.ninja'
 alias sshcca='ssh -lroot cca.ind.ninja -p 11022'
 alias sshcaubo='ssh -lroot -p 11022 74.117.143.215'
 
+
+[ -f ~/.aliases.ssh ] && . ~/.aliases.ssh
+
