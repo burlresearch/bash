@@ -3,7 +3,10 @@
 set nocompatible              " be iMproved, required
 filetype off                  " required
 
-"so ~/.vim/plugins.vim
+" Launch vim and run :PluginInstall
+" To install from command line: vim +PluginInstall +qall
+"
+so ~/.vim/plugins.vim
 
 " :filetype on
 
