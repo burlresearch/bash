@@ -1,4 +1,4 @@
-# FUNCTIONS
+## FUNCTIONS
 
 if [ -x "/usr/bin/realpath" ]; then
     gcmd () { md=${1:-./README.md}; [ -f ${md} ] && /usr/bin/google-chrome `realpath ${md}`; }
@@ -6,7 +6,7 @@ if [ -x "/usr/bin/realpath" ]; then
     alias realpath='readlink -f'
 fi
 
-# ALIASES
+## ALIASES
 
 alias info='info --vi-keys'
 alias ll='ls -hl'
@@ -27,8 +27,6 @@ alias pyrus='php ~/bin/pyrus.phar'
 alias ccache='find cache \( -name "*nav*" -o -name "*menu*" \) -exec rm -fv {} \;'
 alias stall='service --status-all'
 alias xclipv='xclip -selection clipboard'
-alias prxy='ssh -C2TnN -D 8080 as'
-alias sshr='ssh -lroot '
 alias dig='dig +noall +answer'
 
 alias weberr='tail -f /var/log/nginx/error.log'
@@ -39,11 +37,7 @@ alias dcc='echo "flush_all" | nc localhost 11211; drush cc all;'
 alias iptl='iptables --line-numbers -nL'
 alias apt-get='apt-get -y'
 
-alias sshhqa='ssh -lscottb dev.hydroottawa.com'
-alias sshcas='ssh ec2-user@cca-cas.ind.ninja'
-alias sshcca='ssh -lroot cca.ind.ninja -p 11022'
-alias sshcaubo='ssh -lroot -p 11022 74.117.143.215'
-
+alias killidea='jps | grep Main | cut -d" " -f1 | xargs kill -9'
+alias a='php artisan'
 
 [ -f ~/.aliases.ssh ] && . ~/.aliases.ssh
-

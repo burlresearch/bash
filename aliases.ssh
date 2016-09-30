@@ -1,0 +1,7 @@
+alias prxy='ssh -C2TnN -D 8080 as'
+alias sshcas='ssh ec2-user@cca-cas.ind.ninja'
+alias sshcaubo='ssh -lroot -p 11022 74.117.143.215'
+alias sshcca='ssh -lroot cca.ind.ninja -p 11022'
+alias sshcpa='ssh centos@wicket.physiotherapy.ca'
+alias sshhqa='ssh -lscottb dev.hydroottawa.com'
+alias sshr='ssh -lroot '

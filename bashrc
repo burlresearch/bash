@@ -149,6 +149,7 @@ fi
 
 # export PS1='\[\033[1;33m\]\u@\h:\w$\[\033[00m\] ' ## yellow
 export PS1='\[\033[0;31m\]\u@\h:\w$\[\033[00m\] '   ## red
+# export AWS_DEFAULT_PROFILE=hydro
 
 [ -f ~/bin/wp-cli/utils/build-local ] &&  source ~/bin/wp-cli/utils/build-local
 
@@ -163,7 +164,7 @@ fi
 [ -d /opt/openssl-1.0.1g/bin ] && export PATH="/opt/openssl-1.0.1g/bin:$PATH"
 [ -d ~/.composer/vendor/bin ] && PATH="$PATH:~/.composer/vendor/bin"
 
-export PATH=".:$HOME/bin:$PATH:./vendor/bin"
+export PATH="./bin:.:$HOME/bin:$PATH:./vendor/bin"
 export CLASSPATH
 
 ## ruby on rails - rbenv
