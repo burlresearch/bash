@@ -23,11 +23,11 @@ set smartcase   " If a capital letter is included in search, make it case-sensit
 set nohlsearch  " dont highlight search results
 
 " tab -> spaces
-set expandtab		" expand tabs to equivalent spaces
-set shiftround      " use multiple of shiftwidth when indenting with '<' and '>'
-set shiftwidth=2    " number of spaces to use for autoindenting
-set tabstop=2       " a tab is N spaces
-set softtabstop=2   " tab size when insterting/pasting
+set noexpandtab		" expand tabs to equivalent spaces
+set shiftround      " use <shiftwidth> multiples when indenting with '<' and '>'
+set shiftwidth=4    " number of spaces to use for autoindenting
+set tabstop=4       " a tab is N spaces
+set softtabstop=4   " tab size when insterting/pasting
 
 " Auto read when a file is changed on disk
 set autoread

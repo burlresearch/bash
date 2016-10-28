@@ -28,16 +28,15 @@ alias ccache='find cache \( -name "*nav*" -o -name "*menu*" \) -exec rm -fv {} \
 alias stall='service --status-all'
 alias xclipv='xclip -selection clipboard'
 alias dig='dig +noall +answer'
-
 alias weberr='tail -f /var/log/nginx/error.log'
 alias webacc='tail -f /var/log/nginx/access.log'
-
 alias drush='drush -y'
 alias dcc='echo "flush_all" | nc localhost 11211; drush cc all;'
 alias iptl='iptables --line-numbers -nL'
-alias apt-get='apt-get -y'
-
 alias killidea='jps | grep Main | cut -d" " -f1 | xargs kill -9'
 alias a='php artisan'
+alias gits='git status'
+alias gitr='git remote show origin'
+
 
 [ -f ~/.aliases.ssh ] && . ~/.aliases.ssh
