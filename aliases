@@ -37,6 +37,7 @@ alias killidea='jps | grep Main | cut -d" " -f1 | xargs kill -9'
 alias a='php artisan'
 alias gits='git status'
 alias gitr='git remote show origin'
-
+alias ping='ping -c3'
+alias mysqldump='mysqldump --no-comments'
 
 [ -f ~/.aliases.ssh ] && . ~/.aliases.ssh
