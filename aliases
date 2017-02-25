@@ -37,6 +37,10 @@ alias killidea='jps | grep Main | cut -d" " -f1 | xargs kill -9'
 alias a='php artisan'
 alias gits='git status'
 alias gitr='git remote show origin'
+alias apt='apt -y'
+alias ping='ping -c3'
+alias phpdoc='/data/phpdocumentor/vendor/phpdocumentor/phpdocumentor/bin/phpdoc'
+alias clamshell='gconftool-2 --type string --set /apps/gnome-power-manager/buttons/lid_ac "nothing"'
 
 
 [ -f ~/.aliases.ssh ] && . ~/.aliases.ssh

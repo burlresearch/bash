@@ -144,6 +144,9 @@ fi
 ## ELASTICSEARCH
 [ -d /usr/share/elasticsearch ] && export ELASTIC=/usr/share/elasticsearch && PATH="$PATH:$ELASTIC/bin"
 
+## VAGRANT HOME
+[ -d /data/vagrant ] && export VAGRANT_HOME=/data/vagrant
+
 # xmodmap -e "remove lock = Caps_Lock"
 # xmodmap -e "clear Lock"
 

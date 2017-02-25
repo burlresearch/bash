@@ -20,10 +20,10 @@ set backupdir=/tmp
 set incsearch   " show search matches as you type
 set ignorecase  " case insensitive search
 set smartcase   " If a capital letter is included in search, make it case-sensitive
-set nohlsearch  " dont highlight search results
+set hlsearch    " dont highlight search results
 
 " tab -> spaces
-set noexpandtab		" expand tabs to equivalent spaces
+set noexpandtab     " expand tabs to equivalent spaces
 set shiftround      " use <shiftwidth> multiples when indenting with '<' and '>'
 set shiftwidth=4    " number of spaces to use for autoindenting
 set tabstop=4       " a tab is N spaces
