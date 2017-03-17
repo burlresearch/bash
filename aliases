@@ -38,6 +38,8 @@ alias a='php artisan'
 alias gits='git status'
 alias gitr='git remote show origin'
 alias ping='ping -c3'
+alias pshead='ps --sort -rss -eo rss,pid,command | head'
 alias mysqldump='mysqldump --no-comments'
+
 
 [ -f ~/.aliases.ssh ] && . ~/.aliases.ssh
