@@ -177,3 +177,7 @@ export CLASSPATH
 [ -s "/home/scott/.dnx/dnvm/dnvm.sh" ] && . "/home/scott/.dnx/dnvm/dnvm.sh"
 [ -s $HOME/.dnx/dnvm/dnvm.sh ] && . $HOME/.dnx/dnvm/dnvm.sh   # Load dnvm
 
+
+export PATH=$PATH:/home/scott/bin
+
+source '/home/scott/lib/azure-cli/az.completion'
