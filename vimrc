@@ -1,14 +1,8 @@
+" Vundle Install
 " git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
-"
-set nocompatible              " be iMproved, required
-filetype off                  " required
-
 " Launch vim and run :PluginInstall
 " To install from command line: vim +PluginInstall +qall
-"
 so ~/.vim/plugins.vim
-
-" :filetype on
 
 set nobackup
 set nowritebackup
@@ -87,6 +81,7 @@ command! -range=% WordFrequency <line1>,<line2>call WordFrequency()
 " latex compile
 "autocmd BufWritePost *.tex !latex %
 
+" Pathogen
 " Pathogen allows autoloading plugins like emmet::zen_coding for vim.
 " -- not default --
 " call pathogen#infect()
@@ -96,10 +91,12 @@ autocmd! BufWrite * mark ' | silent! %s/\s\+$// | norm ''
 
 au BufRead,BufNewFile *.md set filetype=markdown
 
-
 " Notes and Tips
 " <Leader> - '\' until set via `let mapleader=,`
 " zz - center the line under the curson
 " imap - napping in insert-mode
 " nmap - mapping in normal-mode
+
+map <C-n> :NERDTreeToggle<CR>
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
