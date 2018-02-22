@@ -170,10 +170,21 @@ fi
 export PATH="./bin:.:$HOME/bin:$PATH:./vendor/bin"
 export CLASSPATH
 
+## wp-cli tab completion
+[ -f $HOME/bash/wp-completion.bash ] && source $HOME/bash/wp-completion.bash
+
 ## ruby on rails - rbenv
-[ -f $HOME/.rubyrc ] && source $HOME/.rubyrc
+# [ -f $HOME/.rubyrc ] && source $HOME/.rubyrc
+[ -f $HOME/.pythonrc ] && . $HOME/.pythonrc
 
 ## ASP.NET
 [ -s "/home/scott/.dnx/dnvm/dnvm.sh" ] && . "/home/scott/.dnx/dnvm/dnvm.sh"
 [ -s $HOME/.dnx/dnvm/dnvm.sh ] && . $HOME/.dnx/dnvm/dnvm.sh   # Load dnvm
 
+
+# added by Anaconda3 installer
+export PATH="/data/opt/anaconda3/bin:$PATH"
+
+#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
+export SDKMAN_DIR="$HOME/.sdkman"
+[[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"

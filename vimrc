@@ -28,9 +28,12 @@ set shiftround      " use <shiftwidth> multiples when indenting with '<' and '>'
 set shiftwidth=4    " number of spaces to use for autoindenting
 set tabstop=4       " a tab is N spaces
 set softtabstop=4   " tab size when insterting/pasting
+set modeline
+set modelines=3
 
 " Auto read when a file is changed on disk
 set autoread
+set autowriteall		" automatically write file on buffer blur
 
 " scroll buffer when this close to boundary
 set scrolloff=2
@@ -48,16 +51,14 @@ set number			" line numbering
 
 
 "----------Mappings----------"
-" F5 for datestamps
-" F8 to strip filenames from directories
-" F9 to rtrim('\s')
-" S-F9 to collapse newlines
-" fdm4 change line token map: <F8> A/* XXX */
-nmap <F5> a<C-R>=strftime("%F %a %H:%M")<CR><Esc>
-imap <F5> <C-R>=strftime("%F %a %H:%M")<CR>
-map <F8> :%s;\v(.*/).*;\1;
-map <F9> :%s/\s\+$//
-map <S-F9> :%s/^\n\+/\r/
+" {imap, nmap}: {insert, normal}-mode
+
+nmap <F5> a<C-R>=strftime("%F %a %H:%M")<CR><Esc> " F5: datestamps
+imap <F5> <C-R>=strftime("%F %a %H:%M")<CR> " F5: datestamps
+map <F8> :%s;\v(.*/).*;\1; " F8 to strip filenames from directories
+map <F9> :%s/\s\+$// " F9 to rtrim('\s')
+map <S-F9> :%s/^\n\+/\r/ " S-F9 to collapse newlines
+map <C-n> :NERDTreeToggle<CR>
 
 "----------Laravel----------"
 
@@ -99,7 +100,9 @@ au BufRead,BufNewFile *.md set filetype=markdown
 
 " Notes and Tips
 " <Leader> - '\' until set via `let mapleader=,`
-" zz - center the line under the curson
-" imap - napping in insert-mode
-" nmap - mapping in normal-mode
+let mapleader=","
+
+
+let g:php_cs_fixer_path = "~/.composer/vendor/bin/php-cs-fixer"
+let g:php_cs_fixer_rules = "@PSR2"
 

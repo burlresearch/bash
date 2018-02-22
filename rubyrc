@@ -6,4 +6,4 @@ export RAILS_ENV="development"
 export RACK_ENV="development"
 
 export PATH="${PATH}:${HOME}/src/ruby/taskjuggler/bin"
-export GEM_HOME=${HOME}/src/ruby/taskjuggler
+# export GEM_HOME=${HOME}/src/ruby/taskjuggler
