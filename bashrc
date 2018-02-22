@@ -1,5 +1,3 @@
-# ~/.bashrc: executed by bash(1) for non-login shells.
-
 # If not running interactively, don't do anything
 [ -z "$PS1" ] && return
 
@@ -84,18 +82,18 @@ export EDITOR=vim
 export VISUAL=vim
 umask 002			# umask 007 - this is a little harsh w.r.t. playing nice with others - perhaps on server
 
-[ -f ~/.aliases ]								&& . ~/.aliases
-[ -f /etc/bash_completion ]			&& ! shopt -oq posix && . /etc/bash_completion
-[ -f ~/.tidyrc ]								&& export HTML_TIDY="~/.tidyrc"
-[ -f ~/.envrc ]									&& . ~/.envrc
-[ -d /opt/phpstorm/bin ]				&& PATH="$PATH:/opt/phpstorm/bin"
-[ -d /usr/local/phpstorm/bin ]	&& PATH="$PATH:/usr/local/phpstorm/bin"
-[ -d /usr/local/netbeans/bin ]	&& PATH="$PATH:/usr/local/netbeans/bin"
-[ -d /opt/idea/bin ]						&& PATH="$PATH:/opt/idea/bin"
-[ -d /opt/rubymine/bin ]				&& PATH="$PATH:/opt/rubymine/bin"
-[ -d /opt/pycharm/bin ]					&& PATH="$PATH:/opt/pycharm/bin"
-[ -d /opt/datagrip/bin ]				&& PATH="$PATH:/opt/datagrip/bin"
-[ -d ~/.mozilla ]								&& export MOZILLA_HOME=~/.mozilla
+[ -f ~/.aliases ]			&& . ~/.aliases
+[ -f /etc/bash_completion ]	&& ! shopt -oq posix && . /etc/bash_completion
+[ -f ~/.tidyrc ]			&& export HTML_TIDY="~/.tidyrc"
+[ -f ~/.envrc ]				&& . ~/.envrc
+[ -d /opt/phpstorm/bin ]	&& PATH="$PATH:/opt/phpstorm/bin"
+[ -d /usr/local/phpstorm/bin ] && PATH="$PATH:/usr/local/phpstorm/bin"
+[ -d /usr/local/netbeans/bin ] && PATH="$PATH:/usr/local/netbeans/bin"
+[ -d /opt/idea/bin ]		&& PATH="$PATH:/opt/idea/bin"
+[ -d /opt/rubymine/bin ]	&& PATH="$PATH:/opt/rubymine/bin"
+[ -d /opt/pycharm/bin ]		&& PATH="$PATH:/opt/pycharm/bin"
+[ -d /opt/datagrip/bin ]	&& PATH="$PATH:/opt/datagrip/bin"
+[ -d ~/.mozilla ]			&& export MOZILLA_HOME=~/.mozilla
 
 ## IDEA IntelliJ - ibus
 export IBUS_ENABLE_SYNC_MODE=1
@@ -109,9 +107,6 @@ export IBUS_ENABLE_SYNC_MODE=1
 [ -d $HOME/src/java ] && CLASSPATH="$CLASSPATH:$HOME/src/java/jars/*"
 [ -d /usr/share/tomcat8 ] && export CATALINA_HOME=/usr/share/tomcat8
 
-## RESEARCH
-[ -d /home/scott/src/java/research/tamingtext ] && export TT_HOME=/home/scott/src/java/research/tamingtext
-
 ## MAVEN
 if [ -d /usr/local/maven/bin ]; then
 	PATH="$PATH:/usr/local/maven/bin"
@@ -123,23 +118,8 @@ elif [ -d /usr/share/maven/bin ]; then
 	export M2=$M2_HOME/bin
 fi
 
-## APACHE
-[ -d /home/scott/src/java/apache/mahout ] && export MAHOUT_HOME=/home/scott/src/java/apache/mahout && PATH="$PATH:$MAHOUT_HOME/bin"
-
-[ -d /home/scott/src/java/apache/hadoop/hadoop-dist/target/hadoop-3.0.0-SNAPSHOT/bin ] \
-	&& export HADOOP_HOME="/home/scott/src/java/apache/hadoop/hadoop-dist/target/hadoop-3.0.0-SNAPSHOT" \
-	&& export HADOOP_COMMON_HOME=$HADOOP_HOME \
-	&& export HADOOP_HDFS_HOME=$HADOOP_HOME \
-	&& export HADOOP_MAPRED_HOME=$HADOOP_HOME \
-	&& export HADOOP_YARN_HOME=$HADOOP_HOME
-
-[ -d /etc/hadoop ] && export HADOOP_CONF_HOME=/etc/hadoop
-
 ## OPENNLP
 [ -d /opt/opennlp/bin ] && export OPENNLP_HOME=/opt/opennlp && PATH="$PATH:$OPENNLP_HOME/bin"
-
-## GOLANG
-[ -d $HOME/src/go ] && export GOPATH=$HOME/src/go && PATH="$PATH:$GOPATH/bin"
 
 ## ELASTICSEARCH
 [ -d /usr/share/elasticsearch ] && export ELASTIC=/usr/share/elasticsearch && PATH="$PATH:$ELASTIC/bin"
@@ -155,6 +135,7 @@ export PS1='\[\033[0;31m\]\u@\h:\w$\[\033[00m\] '   ## red
 # export AWS_DEFAULT_PROFILE=hydro
 
 [ -f ~/bin/wp-cli/utils/build-local ] &&  source ~/bin/wp-cli/utils/build-local
+[ -f ~/bin/wp-completion.bash ] &&  source ~/bin/wp-completion.bash
 
 if [ -d $HOME/perl5 ]; then
 	export PERL_LOCAL_LIB_ROOT="$HOME/perl5";
@@ -166,6 +147,8 @@ fi
 
 [ -d /opt/openssl-1.0.1g/bin ] && export PATH="/opt/openssl-1.0.1g/bin:$PATH"
 [ -d ~/.composer/vendor/bin ] && PATH="$PATH:~/.composer/vendor/bin"
+[ -d ~/src/go ] && export GOPATH="$HOME/src/go" && PATH="$PATH:$GOPATH/bin"
+[ -d /usr/local/opt/go/libexec ] && export GOROOT=/usr/local/opt/go/libexec && PATH="$PATH:$GOROOT/bin"
 
 export PATH="./bin:.:$HOME/bin:$PATH:./vendor/bin"
 export CLASSPATH
