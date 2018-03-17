@@ -9,6 +9,7 @@ fi
 ## ALIASES
 
 alias ,='cd ..'
+alias ,,='cd ../..'
 alias c='clear'
 alias info='info --vi-keys'
 alias l='ls -CF'
