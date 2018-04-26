@@ -1,10 +1,21 @@
 ## FUNCTIONS
 
 if [ -x "/usr/bin/realpath" ]; then
-    gcmd () { md=${1:-./README.md}; [ -f ${md} ] && /usr/bin/google-chrome `realpath ${md}`; }
+    gcmd() { md=${1:-./README.md}; [ -f ${md} ] && /usr/bin/google-chrome `realpath ${md}`; }
   else
     alias realpath='readlink -f'
 fi
+
+function arl() {
+	if [[ -n "$1" ]]; then
+		php artisan route:list|grep -i "$1";
+	else
+		php artisan route:list;
+	fi;
+}
+
+camelcase() { perl -pe 's#(_|^)(.)#\u$2#g'; }
+snakecase() { perl -pe 's#([A-Z])#_\L$1#g' | perl -pe 's#^_##'; }
 
 ## ALIASES
 
@@ -20,7 +31,7 @@ alias lz='ls -Z'
 
 alias D='date +%Y%m%d'
 alias a='php artisan'
-alias arl='php artisan route:list'
+#alias arl='php artisan route:list'
 alias amrs='php artisan migrate:refresh --seed'
 alias apt='apt -y'
 alias ccache='find cache \( -name "*nav*" -o -name "*menu*" \) -exec rm -fv {} \;'
