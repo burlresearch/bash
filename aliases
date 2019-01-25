@@ -14,6 +14,15 @@ function arl() {
 	fi;
 }
 
+function tll() {
+	if [[ -n "$1" ]]; then
+		tail -n $1 storage/logs/laravel.log
+	else
+		tail -f storage/logs/laravel.log
+	fi;
+}
+
+
 camelcase() { perl -pe 's#(_|^)(.)#\u$2#g'; }
 snakecase() { perl -pe 's#([A-Z])#_\L$1#g' | perl -pe 's#^_##'; }
 
@@ -25,13 +34,16 @@ alias c='clear'
 alias info='info --vi-keys'
 alias l='ls -CF'
 alias la='ls -Al'
+alias lg='ls -A -l --group-directories-first'
 alias lk='ls -hlrt'
 alias ll='ls -hl'
+alias lld='ls -hld'
 alias lz='ls -Z'
 
 alias D='date +%Y%m%d'
 alias a='php artisan'
-#alias arl='php artisan route:list'
+alias am='php artisan migrate --step'
+alias ams='php artisan migrate:status'
 alias amrs='php artisan migrate:refresh --seed'
 alias apt='apt -y'
 alias ccache='find cache \( -name "*nav*" -o -name "*menu*" \) -exec rm -fv {} \;'
@@ -64,6 +76,7 @@ alias tailweb='tail -f /var/www/hydroottawa.com/monolog'
 alias taill='tail -f storage/logs/laravel.log'
 alias grepi='grep -i'
 alias pandoc='pandoc --atx-headers'
-
+alias gradle='gradle --warning-mode none'
 
 [ -f ~/.aliases.ssh ] && . ~/.aliases.ssh
+

@@ -103,3 +103,5 @@ let g:php_cs_fixer_rules = "@PSR2"
 map <C-n> :NERDTreeToggle<CR>
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
+set wildignore+=*/.git/*,*/node_modules/*,*/.svn/*,*/vendor/*	" CtrlP and Vim in general...
+

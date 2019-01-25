@@ -150,7 +150,8 @@ fi
 [ -d ~/src/go ] && export GOPATH="$HOME/src/go" && PATH="$PATH:$GOPATH/bin"
 [ -d /usr/local/opt/go/libexec ] && export GOROOT=/usr/local/opt/go/libexec && PATH="$PATH:$GOROOT/bin"
 
-export PATH="./bin:.:$HOME/bin:$PATH:./vendor/bin"
+# AWS:CLI
+export PATH="./bin:.:$HOME/bin:$HOME/.local/bin:$PATH:./vendor/bin"
 export CLASSPATH
 
 ## wp-cli tab completion
