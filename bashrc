@@ -53,11 +53,8 @@ unset color_prompt force_color_prompt
 
 # If this is an xterm set the title to user@host:dir
 case "$TERM" in
-xterm*|rxvt*)
-    PS1="\[\e]0;${debian_chroot:+($debian_chroot)}\u@\h: \w\a\]$PS1"
-    ;;
-*)
-    ;;
+	xterm*|rxvt*) PS1="\[\e]0;${debian_chroot:+($debian_chroot)}\u@\h: \w\a\]$PS1" ;;
+	*) ;;
 esac
 
 # enable color support of ls and also add handy aliases
@@ -80,20 +77,23 @@ alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo
 set -o vi
 export EDITOR=vim
 export VISUAL=vim
+export PAGER=less
 umask 002			# umask 007 - this is a little harsh w.r.t. playing nice with others - perhaps on server
 
-[ -f ~/.aliases ]			&& . ~/.aliases
+[ -f ~/.aliases ]		&& . ~/.aliases
 [ -f /etc/bash_completion ]	&& ! shopt -oq posix && . /etc/bash_completion
-[ -f ~/.tidyrc ]			&& export HTML_TIDY="~/.tidyrc"
-[ -f ~/.envrc ]				&& . ~/.envrc
+[ -f ~/.tidyrc ]		&& export HTML_TIDY="~/.tidyrc"
+[ -f ~/.envrc ]			&& . ~/.envrc
 [ -d /opt/phpstorm/bin ]	&& PATH="$PATH:/opt/phpstorm/bin"
-[ -d /usr/local/phpstorm/bin ] && PATH="$PATH:/usr/local/phpstorm/bin"
-[ -d /usr/local/netbeans/bin ] && PATH="$PATH:/usr/local/netbeans/bin"
+[ -d /usr/local/phpstorm/bin ]	&& PATH="$PATH:/usr/local/phpstorm/bin"
+[ -d /usr/local/netbeans/bin ]	&& PATH="$PATH:/usr/local/netbeans/bin"
 [ -d /opt/idea/bin ]		&& PATH="$PATH:/opt/idea/bin"
 [ -d /opt/rubymine/bin ]	&& PATH="$PATH:/opt/rubymine/bin"
 [ -d /opt/pycharm/bin ]		&& PATH="$PATH:/opt/pycharm/bin"
 [ -d /opt/datagrip/bin ]	&& PATH="$PATH:/opt/datagrip/bin"
-[ -d ~/.mozilla ]			&& export MOZILLA_HOME=~/.mozilla
+[ -d ~/.mozilla ]		&& export MOZILLA_HOME=~/.mozilla
+[ -d ~/.mozilla ]		&& export MOZILLA_HOME=~/.mozilla
+[ -d /opt/forticlient-sslvpn/64bit ] && PATH="$PATH:/opt/forticlient-sslvpn/64bit"
 
 ## IDEA IntelliJ - ibus
 export IBUS_ENABLE_SYNC_MODE=1
