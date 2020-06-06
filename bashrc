@@ -107,6 +107,8 @@ export IBUS_ENABLE_SYNC_MODE=1
 [ -d $HOME/src/java ] && CLASSPATH="$CLASSPATH:$HOME/src/java/jars/*"
 [ -d /usr/share/tomcat8 ] && export CATALINA_HOME=/usr/share/tomcat8
 
+export CLASSPATH
+
 ## MAVEN
 if [ -d /usr/local/maven/bin ]; then
 	PATH="$PATH:/usr/local/maven/bin"
@@ -146,29 +148,26 @@ if [ -d $HOME/perl5 ]; then
 fi
 
 [ -d /opt/openssl-1.0.1g/bin ] && export PATH="/opt/openssl-1.0.1g/bin:$PATH"
-[ -d ~/.composer/vendor/bin ] && PATH="$PATH:~/.composer/vendor/bin"
-[ -d ~/src/go ] && export GOPATH="$HOME/src/go" && PATH="$PATH:$GOPATH/bin"
-[ -d /usr/local/opt/go/libexec ] && export GOROOT=/usr/local/opt/go/libexec && PATH="$PATH:$GOROOT/bin"
+[ -d $HOME/.composer/vendor/bin ] && PATH="$PATH:$HOME/.composer/vendor/bin"
+[ -d $HOME/.config/composer/vendor/bin ] && PATH="$PATH:$HOME/.config/composer/vendor/bin"
 
-# AWS:CLI
-export PATH="./bin:.:$HOME/bin:$HOME/.local/bin:$PATH:./vendor/bin"
-export CLASSPATH
+## Golang
+[ -d ~/src/go ] && export GOPATH="$HOME/src/go" && PATH="$PATH:$GOPATH/bin"
+[ -d /usr/local/go ] && export GOROOT=/usr/local/go && PATH="$PATH:$GOROOT/bin"
 
 ## wp-cli tab completion
 [ -f $HOME/bash/wp-completion.bash ] && source $HOME/bash/wp-completion.bash
 
 ## ruby on rails - rbenv
 # [ -f $HOME/.rubyrc ] && source $HOME/.rubyrc
+
+## python
 [ -f $HOME/.pythonrc ] && . $HOME/.pythonrc
+[ -d ~/.local/bin ] && PATH="$PATH:~/.local/bin"
+alias python=python3
+alias pip=pip3
+alias activate='source .venv/bin/activate'
 
-## ASP.NET
-[ -s "/home/scott/.dnx/dnvm/dnvm.sh" ] && . "/home/scott/.dnx/dnvm/dnvm.sh"
-[ -s $HOME/.dnx/dnvm/dnvm.sh ] && . $HOME/.dnx/dnvm/dnvm.sh   # Load dnvm
 
+export PATH="./bin:.:$HOME/bin:$PATH:./vendor/bin"
 
-# added by Anaconda3 installer
-export PATH="/data/opt/anaconda3/bin:$PATH"
-
-#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
-export SDKMAN_DIR="$HOME/.sdkman"
-[[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
