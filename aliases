@@ -22,6 +22,12 @@ function tll() {
 	fi;
 }
 
+weblog() {
+	select logf in /var/log/nginx/*.log
+	do
+		tail -f $logf
+	done
+}
 
 camelcase() { perl -pe 's#(_|^)(.)#\u$2#g'; }
 snakecase() { perl -pe 's#([A-Z])#_\L$1#g' | perl -pe 's#^_##'; }
@@ -30,6 +36,7 @@ snakecase() { perl -pe 's#([A-Z])#_\L$1#g' | perl -pe 's#^_##'; }
 
 alias ,='cd ..'
 alias ,,='cd ../..'
+alias ,,,='cd ../../..'
 alias c='clear'
 alias info='info --vi-keys'
 alias l='ls -CF'
@@ -59,7 +66,7 @@ alias gits='echo "$ git status"; git status'
 alias gitl='git log --pretty=oneline'
 alias iptl='iptables --line-numbers -nL'
 alias killidea='jps | grep Main | cut -d" " -f1 | xargs kill -9'
-alias phpdoc='/data/phpdocumentor/vendor/phpdocumentor/phpdocumentor/bin/phpdoc'
+# alias phpdoc='/data/phpdocumentor/vendor/phpdocumentor/phpdocumentor/bin/phpdoc'
 alias ping='ping -c3'
 alias pshead='ps --sort -rss -eo rss,pid,command | head'
 alias pyrus='php ~/bin/pyrus.phar'
@@ -71,12 +78,12 @@ alias tarrm='tar --remove-files'
 alias xclipv='xclip -selection clipboard'
 alias webacc='tail -f /var/log/nginx/access.log'
 alias weberr='tail -f /var/log/nginx/error.log'
-alias tailapi='tail -f /home/scott/hydro/hydro-api/storage/logs/laravel.log'
-alias tailweb='tail -f /var/www/hydroottawa.com/monolog'
 alias taill='tail -f storage/logs/laravel.log'
 alias grepi='grep -i'
 alias pandoc='pandoc --atx-headers'
 alias gradle='gradle --warning-mode none'
+alias ssc='sudo systemctl'
+alias sjc='sudo journalctl'
 
 [ -f ~/.aliases.ssh ] && . ~/.aliases.ssh
 
