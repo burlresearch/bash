@@ -136,9 +136,6 @@ fi
 export PS1='\[\033[0;31m\]\u@\h:\w$\[\033[00m\] '   ## red
 # export AWS_DEFAULT_PROFILE=hydro
 
-[ -f ~/bin/wp-cli/utils/build-local ] &&  source ~/bin/wp-cli/utils/build-local
-[ -f ~/bin/wp-completion.bash ] &&  source ~/bin/wp-completion.bash
-
 if [ -d $HOME/perl5 ]; then
 	export PERL_LOCAL_LIB_ROOT="$HOME/perl5";
 	export PERL_MB_OPT="--install_base $HOME/perl5";
@@ -156,6 +153,8 @@ fi
 [ -d /usr/local/go ] && export GOROOT=/usr/local/go && PATH="$PATH:$GOROOT/bin"
 
 ## wp-cli tab completion
+[ -f ~/bin/wp-cli/utils/build-local ] &&  source ~/bin/wp-cli/utils/build-local
+[ -f ~/bin/wp-completion.bash ] &&  source ~/bin/wp-completion.bash
 [ -f $HOME/bash/wp-completion.bash ] && source $HOME/bash/wp-completion.bash
 
 ## ruby on rails - rbenv
@@ -169,5 +168,5 @@ alias pip=pip3
 alias activate='source .venv/bin/activate'
 
 
-export PATH="./bin:.:$HOME/bin:$PATH:./vendor/bin"
+export PATH="./bin:.:./vendor/bin:./node_modules/.bin:$HOME/bin:$PATH"
 
