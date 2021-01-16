@@ -92,7 +92,6 @@ umask 002			# umask 007 - this is a little harsh w.r.t. playing nice with others
 [ -d /opt/pycharm/bin ]		&& PATH="$PATH:/opt/pycharm/bin"
 [ -d /opt/datagrip/bin ]	&& PATH="$PATH:/opt/datagrip/bin"
 [ -d ~/.mozilla ]		&& export MOZILLA_HOME=~/.mozilla
-[ -d ~/.mozilla ]		&& export MOZILLA_HOME=~/.mozilla
 [ -d /opt/forticlient-sslvpn/64bit ] && PATH="$PATH:/opt/forticlient-sslvpn/64bit"
 
 ## IDEA IntelliJ - ibus
@@ -119,6 +118,8 @@ elif [ -d /usr/share/maven/bin ]; then
 	export M2_HOME=/usr/share/maven
 	export M2=$M2_HOME/bin
 fi
+
+[ -d /opt/gradle/bin ] && export GRADLE_HOME=/opt/gradle && PATH="$PATH:$GRADLE_HOME/bin"
 
 ## OPENNLP
 [ -d /opt/opennlp/bin ] && export OPENNLP_HOME=/opt/opennlp && PATH="$PATH:$OPENNLP_HOME/bin"
@@ -167,6 +168,12 @@ alias python=python3
 alias pip=pip3
 alias activate='source .venv/bin/activate'
 
+## laravel spark
+[ -d /data/laravel/spark-installer ] && PATH="$PATH:/data/laravel/spark-installer"
+
 
 export PATH="./bin:.:./vendor/bin:./node_modules/.bin:$HOME/bin:$PATH"
 
+
+# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
+export PATH="$PATH:$HOME/.rvm/bin"

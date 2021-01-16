@@ -14,6 +14,14 @@ function arl() {
 	fi;
 }
 
+function arlc() {
+	if [[ -n "$1" ]]; then
+		php artisan route:list -c | grep -i "$1";
+	else
+		php artisan route:list -c;
+	fi;
+}
+
 function tll() {
 	if [[ -n "$1" ]]; then
 		tail -n $1 storage/logs/laravel.log
