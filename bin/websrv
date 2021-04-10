@@ -1,0 +1,23 @@
+#!/bin/bash
+
+PS3='select database to use: '
+
+# todo add stop-option
+#options=("mysql" "postgresql" "quit")
+#select DB in "${options[@]}"; do
+    #case $DB in
+        #"mysql")
+            #echo "you chose choice $REPLY which is $DB"
+            #;;
+        #*) echo "invalid option $REPLY";;
+    #esac
+#done
+
+# sets: $DB, $REPLY
+select DB in mysql postgresql; do
+	sudo systemctl stop mysql postgresql
+	sudo systemctl restart $DB nginx redis-server
+	sudo systemctl status $DB nginx redis-server | grep '.service -\|Active:'
+	break	# or select will loop
+done
+

@@ -31,9 +31,9 @@ function tll() {
 }
 
 weblog() {
-	select logf in /var/log/nginx/*.log
-	do
+	select logf in /var/log/nginx/*.log; do
 		tail -f $logf
+		break
 	done
 }
 
