@@ -79,6 +79,9 @@ export EDITOR=vim
 export VISUAL=vim
 export PAGER=less
 umask 002			# umask 007 - this is a little harsh w.r.t. playing nice with others - perhaps on server
+# https://github.com/jamessan/vim-gnupg
+GPG_TTY=`tty`
+export GPG_TTY
 
 [ -f ~/.aliases ]		&& . ~/.aliases
 [ -f /etc/bash_completion ]	&& ! shopt -oq posix && . /etc/bash_completion
@@ -161,6 +164,8 @@ fi
 
 ## ruby on rails - rbenv
 # [ -f $HOME/.rubyrc ] && source $HOME/.rubyrc
+# ruby add rvm to path for scripting
+[ -d $HOME/.rvm/bin ] && PATH="$PATH:$HOME/.rvm/bin"
 
 ## python
 [ -f $HOME/.pythonrc ] && . $HOME/.pythonrc
@@ -172,9 +177,14 @@ alias activate='source .venv/bin/activate'
 ## laravel spark
 [ -d /data/laravel/spark-installer ] && PATH="$PATH:/data/laravel/spark-installer"
 
+## deno.land
+[ -d /home/scott/.deno ] && export DENO_INSTALL="/home/scott/.deno" && PATH="$DENO_INSTALL/bin:$PATH"
+
+## PATH set final
 
 export PATH="./bin:.:./vendor/bin:./node_modules/.bin:$HOME/bin:$PATH"
 
 
-# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
-export PATH="$PATH:$HOME/.rvm/bin"
+# BitWarden localhost
+export BW_SESSION="Nhe7Jo4zh+c/eHNqt2L3TnNyb8x71eQ/QKuvQcCYlztgAnhDw6/LBpJy5LMicQ3x/wV1mZbfbqO9CekF/8amAA=="
+
