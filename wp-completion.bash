@@ -1,3 +1,5 @@
+# WP-CLI also comes with a tab completion script for Bash and ZSH. Just download wp-completion.bash and source it from ~/.bash_profile:
+# https://raw.githubusercontent.com/wp-cli/wp-cli/v2.4.0/utils/wp-completion.bash
 # bash completion for the `wp` command
 
 _wp_complete() {
