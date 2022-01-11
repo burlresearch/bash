@@ -150,7 +150,7 @@ if [ -d $HOME/perl5 ]; then
 fi
 
 [ -d /opt/openssl-1.0.1g/bin ] && export PATH="/opt/openssl-1.0.1g/bin:$PATH"
-[ -d $HOME/.composer/vendor/bin ] && PATH="$PATH:$HOME/.composer/vendor/bin"
+[ -d $HOME/.chttps://getcomposer.org/installeromposer/vendor/bin ] && PATH="$PATH:$HOME/.composer/vendor/bin"
 [ -d $HOME/.config/composer/vendor/bin ] && PATH="$PATH:$HOME/.config/composer/vendor/bin"
 
 ## Golang
@@ -180,10 +180,12 @@ alias activate='source .venv/bin/activate'
 ## deno.land
 [ -d /home/scott/.deno ] && export DENO_INSTALL="/home/scott/.deno" && PATH="$DENO_INSTALL/bin:$PATH"
 
+## Depot Tools from Google in Python
+[ -d $HOME/src/v8/depot_tools ] && PATH="$PATH:$HOME/src/v8/depot_tools"
+
 ## PATH set final
 
-export PATH="./bin:.:./vendor/bin:./node_modules/.bin:$HOME/bin:$PATH"
-
+export PATH=".:$HOME/bin:bin:vendor/bin:node_modules/.bin:$PATH"
 
 # BitWarden localhost
 export BW_SESSION="Nhe7Jo4zh+c/eHNqt2L3TnNyb8x71eQ/QKuvQcCYlztgAnhDw6/LBpJy5LMicQ3x/wV1mZbfbqO9CekF/8amAA=="
