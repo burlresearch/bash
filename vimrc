@@ -1,3 +1,5 @@
+set nocompatible	" be iMproved, required
+
 " Vundle Install
 " git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 " Launch vim and run :PluginInstall
@@ -31,9 +33,11 @@ set autowriteall		" automatically write file on buffer blur
 
 " scroll buffer when this close to boundary
 set scrolloff=2
-set guifont=Monospace\ 9
+" set guifont=Monospace\ 9
+set guifont=Jetbrains\ Mono\ 8
 set guioptions=egmrL
 set textwidth=0
+set nowrap
 set wrapmargin=0
 set noai
 set nocin
@@ -42,6 +46,13 @@ set inde=
 set splitbelow
 set splitright
 set number			" line numbering
+set norelativenumber
+
+
+"----------Leader (set before use)----------"
+" <Leader> - '\' until set via `let mapleader=,`
+" let mapleader=','
+let mapleader=';'
 
 
 "----------Mappings----------"
@@ -56,7 +67,8 @@ map <C-n> :NERDTreeToggle<CR>
 
 "----------Laravel----------"
 
-nmap <Leader>lr :e app/Http/routes.php<cr>
+" nmap <Leader>lr :e app/Http/routes.php<cr>
+nmap <Leader>lr :e routes/web.php<cr>
 
 
 "----------Functions----------"
@@ -93,10 +105,7 @@ autocmd! BufWrite * mark ' | silent! %s/\s\+$// | norm ''
 au BufRead,BufNewFile *.md set filetype=markdown
 
 " Notes and Tips
-" <Leader> - '\' until set via `let mapleader=,`
-let mapleader=","
-
-
+"
 let g:php_cs_fixer_path = "~/.composer/vendor/bin/php-cs-fixer"
 let g:php_cs_fixer_rules = "@PSR2"
 

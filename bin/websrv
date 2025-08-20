@@ -14,10 +14,27 @@ PS3='select database to use: '
 #done
 
 # sets: $DB, $REPLY
-select DB in mysql postgresql; do
-	sudo systemctl stop mysql postgresql
-	sudo systemctl restart $DB nginx redis-server
-	sudo systemctl status $DB nginx redis-server | grep '.service -\|Active:'
+select DB in mysql postgresql stop ; do
+	case $DB in
+		"stop")
+			sudo systemctl stop mysql postgresql nginx redis-server elasticsearch php7.4-fpm.service php8.4-fpm.service php8.3-fpm.service
+			sudo systemctl status mysql postgresql nginx redis-server elasticsearch | grep '.service -\|Active:'
+			;;
+		*)
+			sudo systemctl stop mysql postgresql
+			sudo systemctl restart $DB nginx redis-server
+			sudo systemctl status $DB nginx redis-server | grep '.service -\|Active:'
+
+			# read -p "Elasticsearch [n]? " -n 1 -r
+			echo		# (optional) move to a new line
+			if [[ $REPLY =~ ^[Yy]$ ]]
+			then
+				sudo systemctl start elasticsearch
+				sudo systemctl status elasticsearch | grep '.service -\|Active:'
+			fi
+
+			;;
+	esac
 	break	# or select will loop
 done
 

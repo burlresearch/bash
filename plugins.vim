@@ -4,14 +4,14 @@
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
-"Plugin 'VundleVim/Vundle.vim'
-"Plugin '2072/PHP-Indenting-for-VIm'
-"Plugin 'ctrlpvim/ctrlp.vim'
-"Plugin 'mattn/emmet-vim'
-"Plugin 'scrooloose/nerdtree'
-"Plugin 'tpope/vim-vinegar'
-"Plugin 'jamessan/vim-gnupg'
-"Plugin 'tpope/vim-surround'
+Plugin 'VundleVim/Vundle.vim'
+Plugin '2072/PHP-Indenting-for-VIm'
+Plugin 'ctrlpvim/ctrlp.vim'
+Plugin 'mattn/emmet-vim'
+Plugin 'scrooloose/nerdtree'
+Plugin 'tpope/vim-vinegar'
+Plugin 'jamessan/vim-gnupg'
+Plugin 'tpope/vim-surround'
 
 call vundle#end()               " required
 filetype plugin indent on       " required
